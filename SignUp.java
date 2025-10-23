@@ -87,7 +87,7 @@ public class SignUp extends AppCompatActivity {
                             userData.put("lastName", lastName);
                             userData.put("contact", contact);
                             userData.put("email", email);
-
+                            
                             // Save to Realtime Database
                             FirebaseDatabase.getInstance().getReference("users")
                                     .child(uid)
