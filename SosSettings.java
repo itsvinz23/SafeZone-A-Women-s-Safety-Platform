@@ -1,110 +1,189 @@
-package com.s23010921.safezone;
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:textColor="#000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DAF7A6"
+    tools:context=".SosSettings">
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.Toast;
+    <!-- Card Container -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
-import java.util.Map;
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOS Settings"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#0b186d" />
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sos_settings2"/>
 
-public class SosSettings extends AppCompatActivity {
+            <!-- Voice Trigger -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
 
-    Switch switchVoiceTrigger, switchSoundAlert, switchAutoLocation;
-    EditText etCustomMessage;
-    Spinner spinnerAlertRepeat, spinnerAlertInterval;
-    Button btnSave;
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Voice trigger"
+                    android:textColor="#0b186d"
+                    android:textSize="16sp" />
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_sos_settings);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+                <Switch
+                    android:id="@+id/switchVoiceTrigger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="#C70039"
+                    android:trackTint="#CBE8C4"/>
+            </LinearLayout>
 
-        // Link UI elements
-        switchVoiceTrigger = findViewById(R.id.switchVoiceTrigger);
-        switchSoundAlert = findViewById(R.id.switchSoundAlert);
-        switchAutoLocation = findViewById(R.id.switchAutoLocation);
-        etCustomMessage = findViewById(R.id.etCustomMessage);
-        spinnerAlertRepeat = findViewById(R.id.spinnerAlertRepeat);
-        spinnerAlertInterval = findViewById(R.id.spinnerAlertInterval);
-        btnSave = findViewById(R.id.btnSave);
+            <!-- Sound Alert -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
 
-        // Load previously saved preferences
-        loadPreferences();
-        printSharedPreferences();
-    }
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sound Alert"
+                    android:textColor="#0b186d"
+                    android:textSize="16sp" />
 
-    public void setDashboard(View v) {
-        savePreferences(); // Save settings before moving to dashboard
-        Intent intent = new Intent(SosSettings.this, DashBoard.class);
-        startActivity(intent);
-        Toast.makeText(this, "Settings saved!", Toast.LENGTH_SHORT).show();
-    }
+                <Switch
+                    android:id="@+id/switchSoundAlert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="#C70039"
+                    android:trackTint="#CBE8C4"/>
+            </LinearLayout>
+            <!-- Auto Location Share -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
 
-    private void savePreferences() {
-        SharedPreferences preferences = getSharedPreferences("SOS_Settings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Auto location share"
+                    android:textColor="#0b186d"
+                    android:textSize="16sp" />
 
-        editor.putBoolean("voice_trigger", switchVoiceTrigger.isChecked());
-        editor.putBoolean("sound_alert", switchSoundAlert.isChecked());
-        editor.putBoolean("auto_location", switchAutoLocation.isChecked());
-        editor.putString("custom_message", etCustomMessage.getText().toString());
-        editor.putString("alert_repeat", spinnerAlertRepeat.getSelectedItem().toString());
-        editor.putString("alert_interval", spinnerAlertInterval.getSelectedItem().toString());
+                <Switch
+                    android:id="@+id/switchAutoLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="#C70039"
+                    android:trackTint="#CBE8C4"/>
+            </LinearLayout>
 
-        editor.apply(); // Save changes
-    }
+            <!-- Custom Message Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom SOS message"
+                android:textColor="#0b186d"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
 
-    private void loadPreferences() {
-        SharedPreferences preferences = getSharedPreferences("SOS_Settings", MODE_PRIVATE);
+            <EditText
+                android:id="@+id/etCustomMessage"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Help me!!!"
+                android:padding="12dp"
+                android:textColor="#0b186d"
+                android:textColorHint="#808080"
+                android:layout_marginBottom="15dp" />
 
-        switchVoiceTrigger.setChecked(preferences.getBoolean("voice_trigger", false));
-        switchSoundAlert.setChecked(preferences.getBoolean("sound_alert", false));
-        switchAutoLocation.setChecked(preferences.getBoolean("auto_location", false));
-        etCustomMessage.setText(preferences.getString("custom_message", ""));
+            <!-- Spinner 1: Alert Repeat Count -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alert Repeat Count"
+                android:textColor="#0b186d"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
 
-        String savedRepeat = preferences.getString("alert_repeat", "");
-        String savedInterval = preferences.getString("alert_interval", "");
+            <Spinner
+                android:id="@+id/spinnerAlertRepeat"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginBottom="15dp"
+                android:entries="@array/alertRepeat"/>
 
-        if (spinnerAlertRepeat.getAdapter() != null) {
-            int posRepeat = ((android.widget.ArrayAdapter<String>) spinnerAlertRepeat.getAdapter()).getPosition(savedRepeat);
-            spinnerAlertRepeat.setSelection(posRepeat);
-        }
+            <!-- Spinner 2: Alert Interval -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alert Interval"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
 
-        if (spinnerAlertInterval.getAdapter() != null) {
-            int posInterval = ((android.widget.ArrayAdapter<String>) spinnerAlertInterval.getAdapter()).getPosition(savedInterval);
-            spinnerAlertInterval.setSelection(posInterval);
-        }
-    }
-    private void printSharedPreferences() {
-        SharedPreferences prefs = getSharedPreferences("SOS_Settings", MODE_PRIVATE);
-        Map<String, ?> allPrefs = prefs.getAll();
+            <Spinner
+                android:id="@+id/spinnerAlertInterval"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginBottom="15dp"
+                android:entries="@array/alertInterval"/>
 
-        for (Map.Entry<String, ?> entry : allPrefs.entrySet()) {
-            Log.d("SharedPrefDebug", entry.getKey() + " = " + String.valueOf(entry.getValue()));
-        }
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:onClick="setDashboard"
+                android:text="Save Settings"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:backgroundTint="#0b186d"
+                android:elevation="4dp"
+                android:stateListAnimator="@null"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        // Optional: Also show in a Toast for quick view
-        String interval = prefs.getString("alert_interval", "N/A");
-        String repeat = prefs.getString("alert_repeat", "N/A");
-        Toast.makeText(this, "Interval: " + interval + ", Repeat: " + repeat, Toast.LENGTH_LONG).show();
-    }
-
-}
+</androidx.constraintlayout.widget.ConstraintLayout>
