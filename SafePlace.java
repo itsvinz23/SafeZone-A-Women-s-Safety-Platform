@@ -57,7 +57,7 @@ public class SafePlace extends AppCompatActivity {
                 Toast.makeText(this, "Google Maps app not found", Toast.LENGTH_SHORT).show();
             }
         });
-        // Contact List icon click
+
         ImageView homeIcon = findViewById(R.id.homeIcon);
         homeIcon.setOnClickListener(v -> {
             Intent intent = new Intent(SafePlace.this, DashBoard.class);
