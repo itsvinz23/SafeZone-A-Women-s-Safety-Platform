@@ -75,7 +75,7 @@ public class CreateContact extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Contact List icon click
+
         homeIcon.setOnClickListener(v -> {
             Intent intent = new Intent(CreateContact.this, DashBoard.class);
             startActivity(intent);
