@@ -47,5 +47,22 @@ public class ContactList extends AppCompatActivity {
         Intent intent = new Intent(ContactList.this, CreateContact.class);
         startActivity(intent);
     }
+    public void setSosButton(View v) {
+        NavigationHelper.goToSOS(this);
+    }
+
+    public void setHome(View v) {
+        NavigationHelper.goToHome(this);
+    }
+
+    public void setLogout(View v) {
+        NavigationHelper.goToLogout(this);
+    }
+    public void setProfile(View v) {
+        NavigationHelper.goToProfile(this);
+    }
+    public void setContactList(View v) {
+        NavigationHelper.goToContactList(this);
+    }
 
 }
