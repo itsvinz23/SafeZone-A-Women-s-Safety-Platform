@@ -45,6 +45,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="THARU"
@@ -55,6 +56,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnProfile"
+                android:onClick="setBtnProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -74,7 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
@@ -177,7 +179,7 @@
                     android:id="@+id/imgContacts"
                     android:onClick="setContactsCard"
                     android:layout_width="150dp"
-                    android:layout_height="135dp"
+                    android:layout_height="130dp"
                     android:layout_marginBottom="0dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/safe_women_contact"/>
@@ -223,7 +225,7 @@
                     android:id="@+id/imgSOSSettings"
                     android:onClick="setSOSSettings"
                     android:layout_width="150dp"
-                    android:layout_height="135dp"
+                    android:layout_height="130dp"
                     android:layout_marginBottom="0dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/sos_settings"/>
@@ -269,8 +271,8 @@
                     android:id="@+id/imgSafePlaces"
                     android:onClick="setSafePlace"
                     android:layout_width="150dp"
-                    android:layout_height="135dp"
-                    android:layout_marginBottom="0dp"
+                    android:layout_height="130dp"
+                    android:layout_marginBottom="1dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/safe_places"/>
 
@@ -290,6 +292,7 @@
         <!-- Share Location Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/shareLocationCard"
+            android:onClick="setShareLocationCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -309,10 +312,9 @@
                 android:gravity="center"
                 android:padding="16dp">
 
-                <!-- Image at top -->
                 <ImageView
                     android:layout_width="150dp"
-                    android:layout_height="135dp"
+                    android:layout_height="130dp"
                     android:layout_marginBottom="0dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/share_location"/>
@@ -346,6 +348,7 @@
     <!-- Share Experience Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/shareExperienceBtn"
+        android:onClick="setFeedback"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
