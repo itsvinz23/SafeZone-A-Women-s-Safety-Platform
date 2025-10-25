@@ -6,194 +6,464 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAF7A6"
+    android:background="#FFFFFF"
     tools:context=".ProfileUpdate">
 
-    <!-- Card Container - Now constrained above the bottom icons -->
+    <!-- Purple Gradient Arc Header -->
+    <LinearLayout
+        android:id="@+id/headerArc"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FFFFFF">
+
+        <!-- Custom background with arc shape -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/purple_gradient_arc" />
+
+        <!-- Profile Picture centered over the arc boundary -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-80dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="8dp"
+            android:background="#FFFFFF"
+            app:strokeColor="#B04579"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/white"
+                android:contentDescription="Profile Image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile"
+                android:padding="8dp"
+                app:tint="#B04579" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <!-- Greeting Text -->
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey User 👋"
+        android:textColor="#631E40"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/headerArc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-70dp" />
+
+    <!-- Main Content Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="10dp"
         app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottomIcons"
+        app:layout_constraintTop_toBottomOf="@+id/tvGreeting"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Contact Number Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/list_item_background">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_phone"
+                        android:layout_marginEnd="16dp"
+                        app:tint="#B04579" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvContactLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact Number"
+                            android:textColor="#631E40"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Enter contact number"
+                            android:inputType="phone"
+                            android:paddingVertical="8dp"
+                            android:textColor="#631E40"
+                            android:textColorHint="#B04579"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginStart="40dp" />
+
+                <!-- Email Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/list_item_background">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_email"
+                        android:layout_marginEnd="16dp"
+                        app:tint="#B04579" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvEmailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email Address"
+                            android:textColor="#631E40"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Enter email address"
+                            android:inputType="textEmailAddress"
+                            android:paddingVertical="8dp"
+                            android:textColor="#631E40"
+                            android:textColorHint="#B04579"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginStart="40dp" />
+
+                <!-- Password Section with Refresh Icon -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/list_item_background">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_password"
+                        android:layout_marginEnd="16dp"
+                        app:tint="#B04579" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvNewPasswordLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Password"
+                            android:textColor="#631E40"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etNewPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Enter new password"
+                            android:inputType="textPassword"
+                            android:paddingVertical="8dp"
+                            android:textColor="#631E40"
+                            android:textColorHint="#B04579"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- Refresh/Update Icon -->
+                    <ImageView
+                        android:id="@+id/btnRefreshPassword"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_refresh"
+                        android:padding="6dp"
+                        app:tint="#631E40" />
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F0F0F0"
+                    android:layout_marginStart="40dp" />
+
+                <!-- Confirm Password Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:background="@drawable/list_item_background">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_confirm_password"
+                        android:layout_marginEnd="16dp"
+                        app:tint="#B04579" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvConfirmPasswordLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Confirm Password"
+                            android:textColor="#631E40"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etConfirmPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="Confirm new password"
+                            android:inputType="textPassword"
+                            android:paddingVertical="8dp"
+                            android:textColor="#631E40"
+                            android:textColorHint="#B04579"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Password Note -->
+                <TextView
+                    android:id="@+id/tvPasswordNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Note: Once you update your password, you will be logged out and must re-login with the new password."
+                    android:textColor="#A80202"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="2sp" />
+
+                <!-- Update Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Update Profile"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="#B04579"
+                    app:cornerRadius="25dp"
+                    app:elevation="4dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavBar"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#F0F0F0"
+        app:strokeWidth="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <!-- Greeting -->
-            <TextView
-                android:id="@+id/tvGreeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Hey User 👋"
-                android:textColor="#0b186d"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+            <!-- Home Icon -->
+            <LinearLayout
+                android:id="@+id/btnProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/nav_item_active_background"
+                android:onClick="setProfile">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Profile Update"
-                android:textColor="#0b186d"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/profIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/profile"
+                    app:tint="#B04579" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:contentDescription="Profile Image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/prof" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textColor="#B04579"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Contact No"
-                android:textColor="#0b186d"
-                android:textSize="16sp" />
+            <!-- Twitter/Post Icon -->
+            <LinearLayout
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setHome">
 
-            <EditText
-                android:id="@+id/etContact"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="14dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter contact number"
-                android:inputType="phone"
-                android:padding="12dp"
-                android:textColor="#0b186d"
-                android:textColorHint="#808080" />
+                <ImageView
+                    android:id="@+id/homeICon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="#631E40" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Email"
-                android:textColor="#0b186d"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="#631E40"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="14dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter email address"
-                android:inputType="textEmailAddress"
-                android:padding="12dp"
-                android:textColor="#0b186d"
-                android:textColorHint="#808080" />
+            <!-- Notifications Icon -->
+            <LinearLayout
+                android:id="@+id/notificationsNavItem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setLogout">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="New Password"
-                android:textColor="#0b186d"
-                android:textSize="16sp" />
+                <ImageView
+                    android:id="@+id/logoutIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_logout"
+                    app:tint="#631E40" />
 
-            <EditText
-                android:id="@+id/etNewPassword"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="14dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter new password"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textColor="#0b186d"
-                android:textColorHint="#808080" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alerts"
+                    android:textColor="#631E40"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Confirm Password"
-                android:textColor="#0b186d"
-                android:textSize="16sp" />
+            <!-- Profile Icon -->
+            <LinearLayout
+                android:id="@+id/navSOS"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setSosButton">
 
-            <EditText
-                android:id="@+id/etConfirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Confirm new password"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textColor="#0b186d"
-                android:textColorHint="#808080" />
+                <ImageView
+                    android:id="@+id/imgNavSOS"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/nav_sos"/>
 
-            <TextView
-                android:id="@+id/tvPasswordNote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Note: Once you update your password, you will be logged out and must re-login with the new password."
-                android:textColor="#FF0000"
-                android:textSize="12sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOS"
+                    android:textStyle="bold"
+                    android:textColor="#FF4A4A"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/btnUpdate"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:backgroundTint="#0b186d"
-                android:elevation="4dp"
-                android:stateListAnimator="@null"
-                android:text="Update Profile"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Bottom Icons - Now with proper ID and constraints -->
-    <LinearLayout
-        android:id="@+id/bottomIcons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingHorizontal="16dp"
-        android:layout_marginBottom="16dp">
-
-        <ImageView
-            android:id="@+id/homeIcon"
-            android:onClick="setHome"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="120dp"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Home"
-            app:tint="#0b186d" />
-
-        <ImageView
-            android:id="@+id/logoutIcon"
-            android:onClick="setLogout"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_logout"
-            android:contentDescription="Logout"
-            app:tint="#0b186d" />
-
-    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
