@@ -5,35 +5,38 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <!-- Video Background -->
-    <VideoView
+
+    <!-- Background Image -->
+    <ImageView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:scaleType="centerCrop"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginBottom="450dp"
-        android:background="@drawable/rounded_transparent_white"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/women_standing" />
 
-    <!-- Semi-transparent overlay -->
+    <!-- Dark Overlay for Better Text Readability -->
     <View
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="650dp"
-        android:background="@drawable/rounded_transparent_white"/>
-    <ImageView
-        android:id="@+id/imgMic"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="700dp"
-        android:layout_marginLeft="330dp"
-        android:src="@drawable/ic_mic" />
+        android:layout_height="match_parent"
+        android:background="#40000000" />
+
+    <!-- Top Gradient Overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_gradient_overlay_dark" />
+
+    <!-- Bottom Gradient Overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_gradient_overlay_dark" />
 
     <!-- App Content -->
     <LinearLayout
@@ -43,63 +46,117 @@
         android:gravity="center_horizontal"
         android:padding="32dp">
 
-
+        <!-- Welcome Content -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="120dp">
 
+            <!-- Welcome Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:fontFamily="sans-serif-light"
                 android:text="Welcome to"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.03"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4" />
 
+            <!-- SafeZone Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="0.05"
                 android:text="SafeZone"
-                android:textColor="#FF4081"
-                android:textSize="48sp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/white"
+                android:textSize="64sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginTop="-8dp"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4" />
 
+            <!-- Tagline -->
             <TextView
-                android:layout_width="280dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:fontFamily="sans-serif-light"
-                android:lineSpacingExtra="4sp"
+                android:layout_marginTop="24dp"
                 android:text="Your safety is not an option, it's a right."
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="8sp"
+                android:letterSpacing="0.02"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4" />
 
+            <!-- Safety Features Indicator -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle_indicator"
+                    android:backgroundTint="#FF4A4A" />
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle_indicator"
+                    android:backgroundTint="#4A7CFF" />
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/circle_indicator"
+                    android:backgroundTint="#B04579" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <!-- Get Started Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNext"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="470dp"
-            android:backgroundTint="#FF4081"
-            android:elevation="8dp"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="180dp"
+            android:backgroundTint="@android:color/white"
+            android:elevation="16dp"
             android:onClick="LoginPage"
-            android:text="Next"
-            android:textColor="@color/white"
+            android:text="Get Started"
+            android:textColor="#B04579"
             android:textSize="18sp"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/white"
-            app:strokeWidth="1dp" />
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            app:icon="@drawable/ic_next"
+            app:iconTint="#B04579"
+            app:iconGravity="textEnd"
+            app:iconPadding="12dp"
+            app:strokeColor="#B04579"
+            app:strokeWidth="2dp" />
+
 
     </LinearLayout>
 
