@@ -51,6 +51,13 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_premium"
+                android:onClick="setPremium"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="center" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnProfile"
