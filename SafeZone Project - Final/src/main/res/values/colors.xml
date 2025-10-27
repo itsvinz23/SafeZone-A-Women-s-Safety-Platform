@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background colors -->
+    <color name="light_purple_background">#F3E8FF</color> <!-- Light purple background -->
+    <color name="dark_purple">#5B2C6F</color> <!-- Dark purple text/buttons -->
+
+    <!-- SOS red colors -->
+    <color name="sos_red">#E74C3C</color> <!-- Bright red for SOS card background -->
+    <color name="darker_red">#f01512</color> <!-- Darker red for SOS button background -->
+
+    <!-- System colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="green">#99f547</color>
+    <color name="dark_blue">#0b186d</color>
+
+    <color name="color_safe">#4CAF50</color>
+    <color name="color_warning">#FF9800</color>
+    <color name="color_danger">#F44336</color>
+
+
+</resources>
