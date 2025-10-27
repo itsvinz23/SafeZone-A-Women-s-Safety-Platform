@@ -17,13 +17,6 @@
 
 ---
 
-### 🔐 SOS Login Screen
-![SOS Login](login.jpg)
-
-### 📊 SOS Dashboard
-![SOS Dashboard](dashboard.jpg)
----
-
 ## ⚙️ Tech Stack
 
 - 💻 Java
@@ -38,8 +31,4 @@ This project is for educational and personal use only
 All emergency features are simulated for academic demonstration purposes.
 ---
 
-## 🙋‍♀️ Developed By
 
-> **Tharushi Nikethana**  
-> Open University Sri Lanka(Bachelor Of Software Engineering) 
-> Mobile App Modelu Final Project – Mobile App Development & Safety Systems
