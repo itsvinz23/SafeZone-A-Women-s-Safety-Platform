@@ -6,20 +6,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAF7A6"
-    android:paddingBottom="16dp"
+    android:background="#FFFFFF"
     tools:context=".ShareLocation">
 
-    <!-- Map Card -->
+    <!-- Elevated Map Card - Reduced height -->
     <androidx.cardview.widget.CardView
         android:id="@+id/mapCard"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="15dp"
         app:cardBackgroundColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,17 +32,19 @@
             tools:context=".ShareLocation" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Location Details Card -->
-    <androidx.cardview.widget.CardView
+    <!-- Location Details Card - Reduced padding and margins -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/locationCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="25dp"
         app:cardElevation="8dp"
         app:cardBackgroundColor="@android:color/white"
+        app:strokeColor="#F0F0F0"
+        app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mapCard">
@@ -57,169 +58,327 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Current Location"
-                android:textColor="#0b186d"
+                android:text="📍 My Current Location"
+                android:textColor="#631E40"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="12dp"
+                android:gravity="center"/>
 
+            <!-- Location Details - Reduced padding -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@drawable/location_details_background"
                 android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Latitude: "
-                    android:textColor="#0b186d"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Latitude -"
+                        android:textColor="#631E40"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvLatitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="12.9716"
+                        android:textColor="#631E40"
+                        android:textSize="14sp"
+                        android:gravity="end"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Longitude -"
+                        android:textColor="#631E40"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvLongitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="77.5946"
+                        android:textColor="#631E40"
+                        android:textSize="14sp"
+                        android:gravity="end"/>
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tvLatitude"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12.9716"
-                    android:textColor="#0b186d"
-                    android:textSize="16sp"/>
+                    android:text="Address -"
+                    android:textColor="#631E40"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="2dp"/>
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="123 Main Street, City, Country"
+                    android:textColor="#631E40"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Longitude: "
-                    android:textColor="#0b186d"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/tvLongitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="77.5946"
-                    android:textColor="#0b186d"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Address:"
-                android:textColor="#0b186d"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="4dp"/>
-
-            <TextView
-                android:id="@+id/tvAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="123 Main Street, City, Country"
-                android:textColor="#0b186d"
-                android:textSize="16sp"
-                android:lineSpacingExtra="4dp"/>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <!-- Sharing Note -->
-    <TextView
-        android:id="@+id/tvSharingNote"
+    <!-- Sharing Note Card - Reduced margins -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/noteCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Send via Message shares with your top 5 priority contacts\nSend via Other shares through apps like WhatsApp, Telegram, etc."
-        android:textColor="#0b186d"
-        android:textSize="14sp"
-        android:lineSpacingExtra="4dp"
-        android:gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#F8F5FF"
+        app:strokeColor="#E8E0FF"
+        app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationCard"/>
+        app:layout_constraintTop_toBottomOf="@id/locationCard">
 
-    <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📤 Sharing Options"
+                android:textColor="#631E40"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Send via Message - Shares with top 5 priority contacts\n• Send via Other - Share through apps like WhatsApp, Telegram, etc."
+                android:textColor="#631E40"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         android:weightSum="2"
         android:gravity="center"
         android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSharingNote">
+        app:layout_constraintTop_toBottomOf="@id/noteCard">
 
         <!-- Send via Message Button -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSendMessage"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="#0b186d"
-            android:elevation="4dp"
-            android:text="Send via Message....."
+            android:text="Send via Message"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="#B04579"
+            app:cornerRadius="20dp"
+            app:elevation="4dp"
+            app:icon="@drawable/share_message"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"/>
 
         <!-- Send via Other Button -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSendOther"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:backgroundTint="#0b186d"
-            android:elevation="4dp"
-            android:text="Send via Other......"
+            android:text="Send via Other"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"/>
+            android:textColor="#B04579"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/white"
+            app:cornerRadius="20dp"
+            app:elevation="4dp"
+            app:strokeColor="#B04579"
+            app:strokeWidth="2dp"
+            app:icon="@drawable/share_other"
+            app:iconTint="#B04579"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"/>
     </LinearLayout>
 
-    <!-- Bottom Icons -->
-    <LinearLayout
-        android:id="@+id/bottomIcons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingVertical="16dp"
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavBar"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#F0F0F0"
+        app:strokeWidth="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/homeIcon"
-            android:onClick="setHomeIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="120dp"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Home"
-            app:tint="#0b186d" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <ImageView
-            android:id="@+id/safeplaceIcon"
-            android:onClick="setSafePlaces"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_safeplace"
-            android:contentDescription="Safe Places"
-            app:tint="#0b186d" />
-    </LinearLayout>
+            <!-- Home Icon -->
+            <LinearLayout
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setHome">
+
+                <ImageView
+                    android:id="@+id/homeIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="#631E40" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="#631E40"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Share Location Icon -->
+            <LinearLayout
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/nav_item_active_background"
+                android:onClick="setShareLocation">
+
+                <ImageView
+                    android:id="@+id/shareIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_share_locations"
+                    app:tint="#B04579" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share Location"
+                    android:textStyle="bold"
+                    android:textColor="#B04579"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Safe Places Icon -->
+            <LinearLayout
+                android:id="@+id/LocationListNavItem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setSafePlaces">
+
+                <ImageView
+                    android:id="@+id/locationIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_safeplace"
+                    app:tint="#631E40" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Safe Places"
+                    android:textColor="#631E40"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- SOS Icon -->
+            <LinearLayout
+                android:id="@+id/navSOS"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:onClick="setSosButton">
+
+                <ImageView
+                    android:id="@+id/imgNavSOS"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/nav_sos"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOS"
+                    android:textColor="#631E40"
+                    android:textSize="10sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
