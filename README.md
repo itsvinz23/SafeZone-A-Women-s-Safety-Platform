@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1ybHRpYWFxeG1oMTJqYjZyZTV4NjVmZXMybnh1bnA1OW8yaGRvMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZqlvCTNHpqrio/giphy.gif" width="300"/>
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDNzaWEwNHl3ajA3cHRvYzQ3NHpjeXJ6dGhqZGF1dWk2M2J0bmRyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b1xWNiJdfzdOiKNZdm/giphy.gif" width="300"/>
 </p>
 
 <p align="center">
@@ -109,7 +109,7 @@ v
 - 💬 Feedback & report section  
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3ohzdQ1IynzclJldUQ/giphy.gif" width="250"/>
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXUzNDFnbGw2b280MXFmZnhmNHo2ZzFpdTZ3bjdicmpwOXZ3ZTkwZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7dxXH5tAZvOa0OsoE9/giphy.gif" width="250"/>
 </p>
 
 ---
